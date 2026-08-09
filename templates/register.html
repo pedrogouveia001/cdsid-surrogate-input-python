@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block back_link %}
+<a href="/" class="back-link">&lt;&lt; Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-card">
+        <h2 class="auth-title" data-i18n="register_user">Register user</h2>
+        
+        {% if error %}
+            <div class="auth-error" data-i18n="error_invalid_login">{{ error }}</div>
+        {% endif %}
+        
+        <form action="/register" method="POST" class="auth-form">
+            <div class="form-group">
+                <label for="email" data-i18n="email">E-mail:</label>
+                <input type="email" id="email" name="email" required class="input-delphi">
+            </div>
+            
+            <div class="form-group">
+                <label for="password" data-i18n="password">Password:</label>
+                <input type="password" id="password" name="password" required class="input-delphi">
+            </div>
+            
+            <div class="form-group">
+                <label for="confirm_password" data-i18n="confirm_password">Confirm Password:</label>
+                <input type="password" id="confirm_password" name="confirm_password" required class="input-delphi">
+            </div>
+            
+            <div class="auth-actions" style="justify-content: flex-end;">
+                <button type="submit" class="btn btn-delphi-action" data-i18n="register">Register</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
